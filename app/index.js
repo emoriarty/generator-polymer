@@ -50,7 +50,7 @@ module.exports = yeoman.generators.Base.extend({
     // say hello
     if (!this.options['skip-welcome-message']) { // for use with generator-m-server
       this.log(yosay(
-        'Welcome to the Polymer generator flavored with Cordova! v.' + this.pkg.version
+        'Welcome to the Polymer generator flavored with Cordova! v.' + this.pkg.version + '\nOut of the box I include Polymer Starter Kit'
       ));
     }
 
@@ -60,9 +60,6 @@ module.exports = yeoman.generators.Base.extend({
     }
 
     var done = this.async();
-
-    // Have Yeoman greet the user.
-    this.log(yosay('Out of the box I include Polymer Starter Kit'));
 
     var prompts = [
       // appName
