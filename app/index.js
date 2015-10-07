@@ -40,7 +40,7 @@ module.exports = yeoman.generators.Base.extend({
       defaults: false
     });
 
-    this.sourceRoot(path.join(path.dirname(this.resolved), 'templates/polymer-starter-kit'));
+    this.sourceRoot(path.join(path.dirname(this.resolved), 'templates/polymer-cordova-starter-kit'));
   },
   askFor: function () {
     if (this.update) {
@@ -50,7 +50,7 @@ module.exports = yeoman.generators.Base.extend({
     // say hello
     if (!this.options['skip-welcome-message']) { // for use with generator-m-server
       this.log(yosay(
-        'Welcome to the Polymer generator flavored with Cordova! v.' + this.pkg.version + '\nOut of the box I include Polymer Starter Kit'
+        'Welcome to the Polymer generator flavored with Cordova! v.' + this.pkg.version + '\nOut of the box I include Polymer Cordova Starter Kit'
       ));
     }
 
