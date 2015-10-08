@@ -208,12 +208,15 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('README.md', 'README.md');
 
     if (this.includeWCT) {
-      this.copy('wct.conf.json', 'wct.conf.json');
+      this.copy('wct.conf.js', 'wct.conf.js');
       this.directory('test', 'test');
     }
 
     this.mkdir('app');
     this.directory('app', 'app');
+
+    this.mkdir('gulp');
+    this.directory('gulp', 'gulp');
 
     if (this.includeRecipes) {
       this.directory('docs', 'docs');

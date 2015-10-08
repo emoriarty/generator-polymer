@@ -136,7 +136,7 @@ describe('yo polymer:el TDD test', function () {
         fs.mkdirSync(dir + '/app');
         fs.mkdirSync(dir + '/app/test');
         fs.copySync(
-          path.join(__dirname, '../app/templates/polymer-starter-kit/app/test/index.html'),
+          path.join(__dirname, '../app/templates/polymer-cordova-starter-kit/app/test/index.html'),
           dir + '/app/test/index.html'
         );
       })
@@ -183,7 +183,7 @@ describe('yo polymer:el BDD test', function () {
         fs.mkdirSync(dir + '/app');
         fs.mkdirSync(dir + '/app/test');
         fs.copySync(
-          path.join(__dirname, '../app/templates/polymer-starter-kit/app/test/index.html'),
+          path.join(__dirname, '../app/templates/polymer-cordova-starter-kit/app/test/index.html'),
           dir + '/app/test/index.html'
         );
       })
@@ -223,7 +223,7 @@ describe('yo polymer:el None test', function () {
         fs.mkdirSync(dir + '/app');
         fs.mkdirSync(dir + '/app/test');
         fs.copySync(
-          path.join(__dirname, '../app/templates/polymer-starter-kit/app/test/index.html'),
+          path.join(__dirname, '../app/templates/polymer-cordova-starter-kit/app/test/index.html'),
           dir + '/app/test/index.html'
         );
       })
