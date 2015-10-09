@@ -14,7 +14,7 @@
     "app",
     "hybrid"
   ],
-  "author": "Chrome Developer Relations",
+  "author": "Enrique Arias",
   "main": "app/index.js",
   "repository": "emoriarty/generator-polymer-cordova",
   "scripts": {
