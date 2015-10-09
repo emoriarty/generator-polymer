@@ -29,7 +29,7 @@ describe('yo polymer:app with WCT test', function () {
       'LICENSE.md',
       'package.json',
       'README.md',
-      'wct.conf.json',
+      'wct.conf.js',
       'app'
     ];
 
