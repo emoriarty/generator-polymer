@@ -1,7 +1,7 @@
 {
   "name": "generator-polymer-cordova",
   "version": "1.2.1",
-  "description": "Scaffold out a Polymer project with flaroved with cordova",
+  "description": "Scaffold out a Polymer project with flavored with cordova",
   "keywords": [
     "yeoman-generator",
     "scaffold",
