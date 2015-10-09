@@ -1,6 +1,6 @@
 {
   "name": "generator-polymer-cordova",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Scaffold out a Polymer project with flavored with cordova",
   "keywords": [
     "yeoman-generator",
@@ -16,7 +16,7 @@
   ],
   "author": "Chrome Developer Relations",
   "main": "app/index.js",
-  "repository": "yeoman/generator-polymer-cordova",
+  "repository": "emoriarty/generator-polymer-cordova",
   "scripts": {
     "test": "jshint {app,el,gh,seed,test}/*.js script-base.js util.js && mocha --reporter spec"
   },
