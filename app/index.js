@@ -9,6 +9,7 @@ var fs = require('fs');
 // local modules
 var utils = require('../util-cordova.js');
 var cordovaConfig = require('./sources/cordova-config.js');
+var mkdirp = require('mkdirp');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -161,65 +162,84 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
   app: function () {
-    this.copy('.editorconfig', '.editorconfig');
-    this.copy('.gitattributes', '.gitattributes');
+
+    this.fs.copy([
+                                this.templatePath() + '/**',
+                                this.templatePath() + '/**/.*',
+                                '!**/{gulpfile.js,bower.json,package.json,.git,.npmignore, wct.conf.json,docs,test}/**'],
+                        this.destinationPath());
 
     // Handle bug where npm has renamed .gitignore to .npmignore
     // https://github.com/npm/npm/issues/3763
-    if (this.src.isFile('.npmignore')) {
-      this.copy('.npmignore', '.gitignore');
+    if (this.fs.exists('.npmignore')) {
+      this.fs.copy(
+        this.templatePath('.npmignore'),
+        this.destinationPath('.gitignore')
+      );
     } else {
-      this.copy('.gitignore', '.gitignore');
+      this.fs.copy(
+        this.templatePath('.gitignore'),
+        this.destinationPath('.gitignore')
+      );
     }
-    this.copy('.jscsrc', '.jscsrc');
-    this.copy('.jshintrc', '.jshintrc');
-
-    this.copy('bower.json', 'bower.json', function(file) {
-      var manifest =  JSON.parse(file);
-      if (!this.includeWCT) {
-        delete manifest.devDependencies['web-component-tester'];
-        delete manifest.devDependencies['test-fixture'];
-      }
-      return JSON.stringify(manifest, null, 2);
-    }.bind(this));
-
-    this.copy('gulpfile.js', 'gulpfile.js', function(file) {
-      var clone = file;
-      if (!this.includeWCT) {
-        clone = file.replace(/require\('web-component-tester'\).+/g,
-          function(match) {
-            return '// ' + match;
-          });
-      }
-      return clone;
-    }.bind(this));
-
-    this.copy('LICENSE.md', 'LICENSE.md');
 
     // Remove WCT if the user opted out
-    this.copy('package.json', 'package.json', function(file) {
-      var manifest =  JSON.parse(file);
-      if (!this.includeWCT) {
-        delete manifest.devDependencies['web-component-tester'];
-      }
-      return JSON.stringify(manifest, null, 2);
-    }.bind(this));
+    this.fs.copy(
+      this.templatePath('bower.json'),
+      this.destinationPath('bower.json'),
+      { process: function (file) {
+        var manifest =  JSON.parse(file.toString());
+        if (!this.includeWCT) {
+          delete manifest.devDependencies['web-component-tester'];
+          delete manifest.devDependencies['test-fixture'];
+        }
+        return JSON.stringify(manifest, null, 2);
+      }.bind(this) });
 
-    this.copy('README.md', 'README.md');
+    // Remove WCT if the user opted out
+    this.fs.copy(
+      this.templatePath('gulpfile.js'),
+      this.destinationPath('gulpfile.js'),
+      { process: function (file) {
+        var clone = file.toString();
+        if (!this.includeWCT) {
+          clone = clone.replace(/require\('web-component-tester'\).+/g,
+            function(match) {
+              return '// ' + match;
+            });
+        }
+        return clone;
+      }.bind(this) });
+
+    // Remove WCT if the user opted out
+    this.fs.copy(
+      this.templatePath('package.json'),
+      this.destinationPath('package.json'),
+      { process: function (file) {
+        var manifest =  JSON.parse(file.toString());
+        if (!this.includeWCT) {
+          delete manifest.devDependencies['web-component-tester'];
+        }
+        return JSON.stringify(manifest, null, 2);
+      }.bind(this) });
 
     if (this.includeWCT) {
-      this.copy('wct.conf.js', 'wct.conf.js');
-      this.directory('test', 'test');
+      this.fs.copy(
+        this.templatePath('wct.conf.js'),
+        this.destinationPath('wct.conf.js')
+      );
+
+      this.fs.copy(
+        this.templatePath('app/test'),
+        this.destinationPath('app/test')
+      );
     }
 
-    this.mkdir('app');
-    this.directory('app', 'app');
-
-    this.mkdir('gulp');
-    this.directory('gulp', 'gulp');
-
     if (this.includeRecipes) {
-      this.directory('docs', 'docs');
+      this.fs.copy(
+        this.templatePath('docs'),
+        this.destinationPath('docs')
+      );
     }
   },
   install: function () {
