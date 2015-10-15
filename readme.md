@@ -28,22 +28,22 @@ This generator clones [Polymer Starter Kit](https://github.com/PolymerElements/p
 ## Installation
 
 Install the generator
-`npm install -g generator-polymer`
+`npm install -g generator-polymer-cordova`
 
 Make a new directory and cd into it
 `mkdir -p my-project && cd $_`
 
 Scaffold a new Polymer project:
-`yo polymer`
+`yo polymer-cordova`
 
 ## Generators
 
 Available generators:
 
-- [polymer (aka polymer:app)](#app)
-- [polymer:element](#element-alias-el)
-- [polymer:seed](#seed)
-- [polymer:gh](#gh)
+- [polymer-cordova (aka polymer:app)](#app)
+- [polymer-cordova:element](#element-alias-el)
+- [polymer-cordova:seed](#seed)
+- [polymer-cordova:gh](#gh)
 
 **Note: Generators are to be run from the root of your app**
 
@@ -52,7 +52,7 @@ Sets up a new Polymer app, generating all the boilerplate you need to get starte
 
 Example:
 ```bash
-yo polymer
+yo polymer-cordova
 ```
 
 ### Element (alias: El)
@@ -60,11 +60,11 @@ Generates a polymer element in `app/elements` and optionally appends an import t
 
 Example:
 ```bash
-yo polymer:element my-element
+yo polymer-cordova:element my-element
 
 # or use the alias
 
-yo polymer:el my-element
+yo polymer-cordova:el my-element
 ```
 
 **Note: You must pass in an element name, and the name must contain a dash "-"**
@@ -72,7 +72,7 @@ yo polymer:el my-element
 One can also include element dependencies to be imported. For instance, if you're creating a `fancy-menu` element which needs to import `paper-button` and `paper-checkbox` as dependencies, you can generate the file like so:
 
 ```bash
-yo polymer:el fancy-menu paper-button paper-checkbox
+yo polymer-cordova:el fancy-menu paper-button paper-checkbox
 ```
 
 #### Options
@@ -90,7 +90,7 @@ To preview your new element you'll want to use the [polyserve](https://github.co
 Example:
 ```bash
 mkdir -p my-foo && cd $_
-yo polymer:seed my-foo
+yo polymer-cordova:seed my-foo
 polyserve
 ```
 
