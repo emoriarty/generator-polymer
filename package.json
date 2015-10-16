@@ -1,6 +1,6 @@
 {
   "name": "generator-polymer-cordova",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Scaffold out a Polymer project flavored with cordova",
   "keywords": [
     "yeoman-generator",
