@@ -1,7 +1,7 @@
-[![NPM version](http://img.shields.io/npm/v/generator-polymer.svg?style=flat)](http://npmjs.org/generator-polymer)
-[![NPM downloads](http://img.shields.io/npm/dm/generator-polymer.svg?style=flat)](http://npmjs.org/generator-polymer)
-[![Build Status](http://img.shields.io/travis/yeoman/generator-polymer/master.svg?style=flat)](https://travis-ci.org/yeoman/generator-polymer)
-[![Dependency Status](http://img.shields.io/david/yeoman/generator-polymer.svg?style=flat)](https://david-dm.org/yeoman/generator-polymer)
+[![NPM version](http://img.shields.io/npm/v/generator-polymer-cordova.svg?style=flat)](http://npmjs.org/generator-polymer-cordova)
+[![NPM downloads](http://img.shields.io/npm/dm/generator-polymer-cordova.svg?style=flat)](http://npmjs.org/generator-polymer-cordova)
+[![Build Status](http://img.shields.io/travis/emoriarty/generator-polymer-cordova/master.svg?style=flat)](https://travis-ci.org/emoriarty/generator-polymer-cordova)
+[![Dependency Status](http://img.shields.io/david/emoriarty/generator-polymer-cordova.svg?style=flat)](https://david-dm.org/emoriarty/generator-polymer-cordova)
 
 ## Yeoman generator for Polymer projects
 
@@ -11,11 +11,11 @@
 
 [Polymer](http://www.polymer-project.org/) is a library of polyfills and sugar which enable the use of Web Components in modern browsers. The project allows developers to build apps using the platform of tomorrow and inform the W3C of places where in-flight specifications can be further improved.
 
-`generator-polymer` provides Polymer scaffolding using [Yeoman](http://yeoman.io) (a scaffolding tool for the web), letting you easily create and customize Polymer (custom) elements via the command-line and import them using HTML Imports. This saves you time writing boilerplate code so you can start writing up the logic to your components straight away.
+`generator-polymer-cordova` provides Polymer scaffolding using [Yeoman](http://yeoman.io) (a scaffolding tool for the web), letting you easily create and customize Polymer (custom) elements via the command-line and import them using HTML Imports. This saves you time writing boilerplate code so you can start writing up the logic to your components straight away.
 
 ## Features
 
-* A Polymer app scaffold built with [Polymer Starter Kit](https://developers.google.com/web/tools/polymer-starter-kit/)
+* A Polymer app scaffold based in [Polymer Starter Kit](https://developers.google.com/web/tools/polymer-starter-kit/) but modified in order to add cordova support.
 * Sub-generator to create Polymer elements for your app
 * Quick deploy to GitHub pages
 * All the goodness of [seed-element](https://github.com/polymerelements/seed-element) (docs & landing page for your element)
