@@ -4,18 +4,30 @@ var path    = require('path');
 var fs      = require('fs-extra');
 var helpers = require('yeoman-generator').test;
 var assert  = require('yeoman-generator').assert;
+var _       = require('lodash');
 
-describe('yo polymer:el', function() {
+var appPrompts = {
+      appName: 'test',
+      appId: 'com.company.test',
+      includeWCT: true,
+      includeRecipes: false,
+      platforms: ['ios', 'android'],
+      plugins: ['cordova-plugin-device']
+    },
+    appArgs = [
+      '--skip-install',
+      '--skip-sdk'
+    ];
 
-  describe('yo polymer:el test', function () {
+describe('yo polymer-cordova:el', function() {
+
+  describe('yo polymer-cordova:el test', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
         .inDir(path.join(__dirname, './tmp'))
-        .withArguments(['--skip-install'])
-        .withPrompts({
-          includeWCT: true
-        })
+        .withArguments(appArgs)
+        .withPrompts(appPrompts)
         .on('end', done);
     });
 
@@ -57,15 +69,13 @@ describe('yo polymer:el', function() {
 
   });
 
-  describe('yo polymer:el --docs test', function () {
+  describe('yo polymer-cordova:el --docs test', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
         .inDir(path.join(__dirname, './tmp'))
-        .withArguments(['--skip-install'])
-        .withPrompts({
-          includeWCT: true
-        })
+        .withArguments(appArgs)
+        .withPrompts(appPrompts)
         .on('end', done);
     });
 
@@ -91,15 +101,13 @@ describe('yo polymer:el', function() {
     });
   });
 
-  describe('yo polymer:el --path test', function () {
+  describe('yo polymer-cordova:el --path test', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
         .inDir(path.join(__dirname, './tmp'))
-        .withArguments(['--skip-install'])
-        .withPrompts({
-          includeWCT: true
-        })
+        .withArguments(appArgs)
+        .withPrompts(appPrompts)
         .on('end', done);
     });
 
@@ -130,7 +138,7 @@ describe('yo polymer:el', function() {
     });
   });
 
-  describe('yo polymer:el TDD test', function () {
+  describe('yo polymer-cordova:el TDD test', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../el'))
@@ -138,7 +146,7 @@ describe('yo polymer:el', function() {
           fs.mkdirSync(dir + '/app');
           fs.mkdirSync(dir + '/app/test');
           fs.copySync(
-            path.join(__dirname, '../app/templates/polymer-starter-kit/app/test/index.html'),
+            path.join(__dirname, '../app/templates/polymer-cordova-starter-kit/app/test/index.html'),
             dir + '/app/test/index.html'
           );
         })
@@ -177,7 +185,7 @@ describe('yo polymer:el', function() {
     });
   });
 
-  describe('yo polymer:el BDD test', function () {
+  describe('yo polymer-cordova:el BDD test', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../el'))
@@ -185,7 +193,7 @@ describe('yo polymer:el', function() {
           fs.mkdirSync(dir + '/app');
           fs.mkdirSync(dir + '/app/test');
           fs.copySync(
-            path.join(__dirname, '../app/templates/polymer-starter-kit/app/test/index.html'),
+            path.join(__dirname, '../app/templates/polymer-cordova-starter-kit/app/test/index.html'),
             dir + '/app/test/index.html'
           );
         })
@@ -217,7 +225,7 @@ describe('yo polymer:el', function() {
     });
   });
 
-  describe('yo polymer:el None test', function () {
+  describe('yo polymer-cordova:el None test', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../el'))
@@ -225,7 +233,7 @@ describe('yo polymer:el', function() {
           fs.mkdirSync(dir + '/app');
           fs.mkdirSync(dir + '/app/test');
           fs.copySync(
-            path.join(__dirname, '../app/templates/polymer-starter-kit/app/test/index.html'),
+            path.join(__dirname, '../app/templates/polymer-cordova-starter-kit/app/test/index.html'),
             dir + '/app/test/index.html'
           );
         })

@@ -4,9 +4,9 @@ var path    = require('path');
 var helpers = require('yeoman-generator').test;
 var assert  = require('yeoman-generator').assert;
 
-describe('yo polymer:seed', function() {
+describe('yo polymer-cordova:seed', function() {
 
-  describe('yo polymer:seed with WCT test', function () {
+  describe('yo polymer-cordova:seed with WCT test', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../seed'))
@@ -46,7 +46,7 @@ describe('yo polymer:seed', function() {
 
   });
 
-  describe('yo polymer:seed without WCT test', function () {
+  describe('yo polymer-cordova:seed without WCT test', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../seed'))
